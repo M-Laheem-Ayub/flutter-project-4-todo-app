@@ -1,5 +1,4 @@
 // ignore_for_file: must_be_immutable, file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/DrawerTile.dart';
 
@@ -22,8 +21,21 @@ class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height,
       width: widget.increaseWidth ? 250 : 0,
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color:
+                widget.isDark
+                    ? Color.fromRGBO(255, 255, 255, 0.05)
+                    : Color.fromRGBO(0, 0, 0, 0.1),
+            offset: Offset(5, 0),
+            blurRadius: 10,
+            spreadRadius: 1,
+          ),
+        ],
+        // border: Border(right: BorderSide(color: Colors.white, width: 1)),
         color: widget.isDark ? Color(0xff101218) : Colors.white,
       ),
       child: Column(
